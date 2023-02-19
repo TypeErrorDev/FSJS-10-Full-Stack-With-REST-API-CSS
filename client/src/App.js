@@ -13,6 +13,7 @@ import Courses from "./components/Courses";
 import NotFound from "./components/NotFound";
 import UserSignOut from "./components/UserSignOut";
 import PrivateRoute from "./PrivateRoute";
+import { UserProvider } from "./components/UserContext";
 
 const App = () => {
   // const [user, setUser] = useState(null);
@@ -33,8 +34,8 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Router>
+    <Router>
+      <UserProvider>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<UserSignIn />} />
@@ -65,8 +66,8 @@ const App = () => {
             <Route element={<NotFound />} />
           </Routes>
         </Suspense>
-      </Router>
-    </div>
+      </UserProvider>
+    </Router>
   );
 };
 
