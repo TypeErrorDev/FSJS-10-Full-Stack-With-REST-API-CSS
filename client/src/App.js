@@ -24,7 +24,7 @@ const App = () => {
       .then((res) => {
         // handle success
         setCourses(res.data);
-        console.log(res.data[2].title);
+        console.log(res.data[1].title);
       })
       .catch((error) => {
         // handle error
@@ -37,7 +37,8 @@ const App = () => {
       <Router>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path="/" element={<Courses courses={courses} />} />
+            <Route path="/" element={<UserSignIn />} />
+            <Route path="/courses" element={<Courses courses={courses} />} />
             <Route
               path="/courses/create"
               element={
