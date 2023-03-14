@@ -1,45 +1,43 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const userContext = createContext();
+const UserContext = createContext(null);
 
 export const UserProvider = (props) => {
-  // Set initial state
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+
   const navigate = useNavigate();
 
-  // Sign in and pass user data to state
+  //Sign-in by passing the emailAddress and password to the api
   const userSignIn = async (emailAddress, password) => {
-    // Make request to API
-    const response = await fetch("http://localhost:5000/api/users", {
+    await fetch("http://localhost:5000/api/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: `Basic ${btoa(`${emailAddress}:${password}`)}`,
+        Authorization: "Basic " + btoa(`${emailAddress}:${password}`),
       },
     })
       .then((res) => {
-        // If user is not authenticated, return error
         if (res.status === 401) {
-          alert("Sign-in was unsuccessful");
-          return navigate("/sign-in");
+          alert("Invalid Username/Password");
+          return navigate("/signin");
         } else {
           navigate("/");
           return res.json();
         }
       })
       .then((data) => {
-        // If user is authenticated, set user data to state
         if (data.message) {
           console.log(data.message);
         } else {
+          //Set data for current user in global state
           setUser(data);
           setUser((prevState) => ({ ...prevState, password: password }));
           console.log(user);
         }
       })
-      .catch((err) => {
-        console.log("Error: ", err);
+      .catch((error) => {
+        console.log("Error:", error);
       });
   };
 
@@ -48,7 +46,7 @@ export const UserProvider = (props) => {
   };
 
   return (
-    <userContext.Provider
+    <UserContext.Provider
       value={{
         user,
         actions: {
@@ -58,8 +56,8 @@ export const UserProvider = (props) => {
       }}
     >
       {props.children}
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 };
 
-export default userContext;
+export default UserContext;
