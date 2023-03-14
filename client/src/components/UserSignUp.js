@@ -1,16 +1,14 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useState, useContext} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import UserProvider from "../components/UserContext";
+import Header from "../components/Header"
 
 const UserSignIn = () => {
   let navigate = useNavigate();
 
-  const handleCancel = (event) => {
-    event.preventDefault();
-    navigate("/");
-  };
 
-  let { actions } = useContext(UserProvider);
+
+  let {actions} = useContext(UserProvider);
 
   let [emailAddress, setEmailAddress] = useState("");
   let [password, setPassword] = useState("");
@@ -19,45 +17,32 @@ const UserSignIn = () => {
     e.preventDefault();
     actions.userSignIn(emailAddress, password);
   };
+  const handleCancel = (event) => {
+    event.preventDefault();
+    navigate("/");
+  };
+
 
   return (
     <React.Fragment>
+      <Header/>
       <div className="form--centered">
-        <h2>Sign In</h2>
-
+        <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <label>
-            Email Address
-            <input
-              id="emailAddress"
-              name="emailAddress"
-              type="email"
-              value={emailAddress}
-              onChange={(e) => setEmailAddress(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Password
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <button className="button" type="submit">
-            Sign In
-          </button>
-          <button className="button button-secondary" onClick={handleCancel}>
-            Cancel
+          <label htmlFor="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" defaultValue/>
+          <label htmlFor="lastName">Last Name</label>
+          <input id="lastName" name="lastName" type="text" defaultValue/>
+          <label htmlFor="emailAddress">Email Address</label>
+          <input id="emailAddress" name="emailAddress" type="email" defaultValue/>
+          <label htmlFor="password">Password</label>
+          <input id="password" name="password" type="password" defaultValue/>
+          <button className="button" type="submit">Sign Up</button>
+          <button className="button button-secondary"
+                  onClick={handleCancel}>Cancel
           </button>
         </form>
-        <p>
-          Don't have a user account? Click here to{" "}
-          <Link to="/signup">sign up</Link>!
-        </p>
+        <p>Already have a user account? Click here to <a href="sign-in.html">sign in</a>!</p>
       </div>
     </React.Fragment>
   );

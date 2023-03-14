@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,12 +11,8 @@ const Header = () => {
           </h1>
           <nav>
             <ul className="header--signedout">
-              <li>
-                <a href="sign-up.html">Sign Up</a>
-              </li>
-              <li>
-                <a href="sign-in.html">Sign In</a>
-              </li>
+              <Link to="/signup">Sign Up </Link>|
+              <Link to="/signin"> Sign In</Link>
             </ul>
           </nav>
         </div>
