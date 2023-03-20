@@ -1,5 +1,5 @@
-import React, {useState, useContext} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import userContext from "./UserContext";
 import Header from "./Header";
 
@@ -7,8 +7,7 @@ const UserSignIn = () => {
   let navigate = useNavigate();
 
   // deconstructs the actions from the UserProvider function in userContext
-  let {actions} = useContext(userContext);
-
+  let { actions } = useContext(userContext);
   let [emailAddress, setEmailAddress] = useState("");
   let [password, setPassword] = useState("");
 
@@ -21,10 +20,10 @@ const UserSignIn = () => {
     e.preventDefault();
     navigate("/");
   };
-  
+
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="form--centered">
         <h2>Sign In</h2>
         <form onSubmit={handleSubmit}>
