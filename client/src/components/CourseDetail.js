@@ -1,23 +1,17 @@
 import React from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const CourseDetail = () => {
   return (
     <div>
-      <Header />
+      <Header/>
       <main>
         <div className="actions--bar">
           <div className="wrap">
-            <a className="button" href="update-course.html">
-              Update Course
-            </a>
-            <a className="button" href="#">
-              Delete Course
-            </a>
-            <a className="button button-secondary" href="index.html">
-              Return to List
-            </a>
+            <button className="button">Update Course</button>
+            <button className="button">Delete Course</button>
+            <button className="button button-secondary">Return to List</button>
           </div>
         </div>
         <div className="wrap">
