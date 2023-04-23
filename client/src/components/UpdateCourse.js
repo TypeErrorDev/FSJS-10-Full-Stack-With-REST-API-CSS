@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UserContext from "../context/userContext";
+import UserContext from "../context/UserContext";
 
 const UpdateCourse = (props) => {
   const { user } = useContext(UserContext);
@@ -39,6 +39,7 @@ const UpdateCourse = (props) => {
         title: courseTitle,
         description: courseDescription,
         estimatedTime: courseEstimatedTime,
+        materialsNeeded: courseMaterialsNeeded,
       }),
     })
       .then((res) => {

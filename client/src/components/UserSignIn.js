@@ -1,24 +1,24 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import userContext from "./UserContext";
+import UserProvider from "../context/UserContext";
 import Header from "./Header";
 
 const UserSignIn = () => {
   let navigate = useNavigate();
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   // deconstructs the actions from the UserProvider function in userContext
-  let { actions } = useContext(userContext);
+  let { actions } = useContext(UserProvider);
   let [emailAddress, setEmailAddress] = useState("");
   let [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.userSignIn(emailAddress, password);
-  };
-
-  const handleCancel = (e) => {
-    e.preventDefault();
-    navigate("/");
   };
 
   return (

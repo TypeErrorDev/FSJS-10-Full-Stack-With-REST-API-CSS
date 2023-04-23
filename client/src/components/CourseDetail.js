@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import UserContext from "../context/userContext";
+import UserContext from "../context/UserContext";
 import ReactMarkdown from "react-markdown";
 
 const Courses = (props) => {

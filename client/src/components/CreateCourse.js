@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserContext from "../context/userContext";
+import UserContext from "../context/UserContext";
 
 const CreateCourse = () => {
   const navigate = useNavigate();
@@ -135,6 +135,9 @@ const CreateCourse = () => {
           </div>
           <button className="button" type="submit">
             Create Course
+          </button>
+          <button className="button button-secondary" onClick={handleCancel}>
+            Cancel
           </button>
         </form>
       </div>
