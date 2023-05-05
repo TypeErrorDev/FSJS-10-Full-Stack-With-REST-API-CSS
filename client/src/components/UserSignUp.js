@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
+import Header from "./Header";
 
 const UserSignUp = () => {
   let navigate = useNavigate();
@@ -71,6 +72,7 @@ const UserSignUp = () => {
 
   return (
     <React.Fragment>
+      <Header />
       <div className="form--centered">
         <h2>Sign Up</h2>
         {valErrors.length !== 0 ? (

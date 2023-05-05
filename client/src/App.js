@@ -24,8 +24,6 @@ const App = () => {
     axios
       .get("http://localhost:3001/api/courses")
       .then((res) => {
-        // handle success
-
         setCourses(res.data);
         console.log(res.data);
         // console.log(res.data[2].description);

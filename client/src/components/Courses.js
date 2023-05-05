@@ -7,7 +7,7 @@ import Header from "./Header";
 const Courses = (props) => {
   let results = props.courses;
   let courses;
-  //TODO - Dynamically render courses from the database
+
   if (results.length > 0) {
     courses = results.map((course) => (
       <CourseList

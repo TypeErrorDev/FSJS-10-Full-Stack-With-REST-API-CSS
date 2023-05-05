@@ -5,8 +5,8 @@ import ReactMarkdown from "react-markdown";
 
 const Courses = (props) => {
   let navigate = useNavigate();
-  let { courses } = props;
   const { user } = useContext(UserContext);
+  let { courses } = props;
 
   let { id } = useParams();
   let newID = parseInt(id);
