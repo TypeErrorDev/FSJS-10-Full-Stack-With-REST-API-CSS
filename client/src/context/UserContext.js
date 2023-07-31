@@ -21,15 +21,16 @@ export const UserProvider = (props) => {
     };
 
     await fetch("http://localhost:5000/api/users", fetchOptions)
-      .then((res) => {
+      .then(async (res) => {
         // user authenticated and returns user data
         if (res.status === 200) {
-           let user = res.json();
+           let user =  await res.json();
           setUser(user);
           Cookies.set("authenticatedUser", JSON.stringify(user), {
             expires: 1,
           });
           console.log(res.status);
+          console.log(user);
           navigate("/");
           return user;
         } else if (res.status === 401) {
