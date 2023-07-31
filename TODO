@@ -1,13 +1,13 @@
 React Project
     Meets Expectations:
-        x Project set up using create-react app
-        x The React project's folder is named `client`
+        ✔ Project set up using create-react app @done(23-07-29 05:29)
+        ✔ The React project's folder is named `client` @done(23-07-29 05:29)
         ☐ No warnings or errors in console about unused/missing assets
-        x Running `npm start` launches the app
+        ✔ Running `npm start` launches the app @done(23-07-29 05:29)
 
 REST API
     Meets Expectations:
-        x The REST API project's folder is named `api`
+        ✔ The REST API project's folder is named `api` @done(23-07-29 05:29)
         x The RETS API has been updated with support for Cross-Origin Resource Sharing (CORS)
 
 Stateful Components

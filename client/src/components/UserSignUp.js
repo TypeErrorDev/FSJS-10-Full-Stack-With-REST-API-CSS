@@ -20,7 +20,7 @@ const UserSignUp = () => {
   const [valErrors, setValErrors] = useState([]);
 
   const signUp = async () => {
-    await fetch("http://localhost:3001/api/users", {
+    await fetch("http://localhost:5000/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const UserSignUp = () => {
       });
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setValErrors([]);
     if (firstName === "" || firstName === null) {

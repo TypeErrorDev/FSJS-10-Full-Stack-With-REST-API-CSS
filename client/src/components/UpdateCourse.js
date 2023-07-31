@@ -18,7 +18,7 @@ const UpdateCourse = (props) => {
     navigate(-1);
   };
 
-  let putURL = `http://localhost:3001/api/courses/${newID}`;
+  let putURL = `http://localhost:5000/api/courses/${newID}`;
 
   let [courseTitle, setCourseTitle] = useState(course.title);
   let [courseDescription, setCourseDescription] = useState(course.description);

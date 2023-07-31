@@ -14,7 +14,7 @@ const CreateCourse = () => {
   const [valErrors, setValErrors] = useState([]);
 
   const addCourse = async () => {
-    await fetch("http://localhost:3001/api/courses", {
+    await fetch("http://localhost:5000/api/courses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

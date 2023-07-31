@@ -45,6 +45,7 @@ header {
 }
 header li {
     font-size: .8rem;
+    list-style: none;
 }
 header nav a {
     color: #dbd;

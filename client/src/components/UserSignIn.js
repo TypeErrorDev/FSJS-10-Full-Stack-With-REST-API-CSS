@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UserProvider from "../context/UserContext";
+import UserContext from "../context/UserContext";
 import Header from "./Header";
 
 const UserSignIn = () => {
@@ -12,13 +12,24 @@ const UserSignIn = () => {
   };
 
   // deconstructs the actions from the UserProvider function in userContext
-  let { actions } = useContext(UserProvider);
+  const { actions } = useContext(UserContext);
   let [emailAddress, setEmailAddress] = useState("");
   let [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    actions.userSignIn(emailAddress, password);
+    try {
+      const user = await actions.userSignIn(emailAddress, password);
+      if (user) {
+        navigate("/");
+      } else {
+        setErrors(["Sign-in was unsuccessful"]);
+      }
+    } catch (error) {
+      console.log(error);
+      navigate("/error");
+    }
   };
 
   return (
@@ -26,6 +37,16 @@ const UserSignIn = () => {
       <Header />
       <div className="form--centered">
         <h2>Sign In</h2>
+        {errors.length !== 0 ? (
+          <div className="validation--errors">
+            <h3>Validation Errors</h3>
+            <ul>
+              {errors.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <form onSubmit={handleSubmit}>
           <label>Email Address</label>
           <input

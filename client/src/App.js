@@ -22,11 +22,9 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/courses")
+      .get("http://localhost:5000/api/courses")
       .then((res) => {
         setCourses(res.data);
-        console.log(res.data);
-        // console.log(res.data[2].description);
       })
       .catch((error) => {
         // handle error

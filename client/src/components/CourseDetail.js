@@ -16,7 +16,7 @@ const Courses = (props) => {
   let updateCourseURL = `/courses/${newID}/update`;
 
   const deleteCourse = async () => {
-    await fetch(`http://localhost:3001/api/courses/${newID}`, {
+    await fetch(`http://localhost:5000/api/courses/${newID}`, {
       method: "DELETE",
       headers: {
         Authorization: "Basic " + btoa(`${user.emailAddress}:${user.password}`),
