@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
+import Header from "./Header";
 
 const CreateCourse = () => {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ const CreateCourse = () => {
   };
   return (
     <React.Fragment>
+      <Header />
       <div className="wrap">
         <h2>Create Course</h2>
         {valErrors.length !== 0 ? (
@@ -133,7 +135,7 @@ const CreateCourse = () => {
               </label>
             </div>
           </div>
-          <button className="button" type="submit">
+          <button className="button" type="submit" onClick={handleSubmit}>
             Create Course
           </button>
           <button className="button button-secondary" onClick={handleCancel}>

@@ -8,7 +8,7 @@ React Project
 REST API
     Meets Expectations:
         ✔ The REST API project's folder is named `api` @done(23-07-29 05:29)
-        x The RETS API has been updated with support for Cross-Origin Resource Sharing (CORS)
+        ✔ The RETS API has been updated with support for Cross-Origin Resource Sharing (CORS) @done(23-07-31 11:13)
 
 Stateful Components
     Meets Expectations:
